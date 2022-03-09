@@ -6,3 +6,11 @@ spring:
       database: reactive_data
 #      username: root
 #      password: password
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+

@@ -3,7 +3,6 @@ package com.crudops.reactiveapp.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Value;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -19,5 +18,7 @@ public class EmployeeModel {
 
     private String name;
     private Double salary;
+    private String street;
+    private String city;
 
 }

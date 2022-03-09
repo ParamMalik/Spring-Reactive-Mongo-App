@@ -1,18 +1,20 @@
 package com.crudops.reactiveapp.dao;
 
-import com.crudops.reactiveapp.model.EmployeeModel;
+import com.crudops.reactiveapp.dto.EmployeeDTO;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface EmployeeInterface {
-    Mono<EmployeeModel> findByName(String name);
+    Mono<EmployeeDTO> findByName(String name);
 
-    Mono<EmployeeModel> save(EmployeeModel employee);
+    Mono<EmployeeDTO> save(EmployeeDTO employee);
 
-    Flux<EmployeeModel> findAll();
+    Flux<EmployeeDTO> findAll();
 
     Mono<Void> deleteById(String id);
 
-    Mono<EmployeeModel> updateSalary(EmployeeModel employee);
+    Mono<EmployeeDTO> updateSalary(EmployeeDTO employee);
+
+//    Mono<EmployeeDTO> partialUpdate(EmployeeDTO employeeDTO);
 
 }
