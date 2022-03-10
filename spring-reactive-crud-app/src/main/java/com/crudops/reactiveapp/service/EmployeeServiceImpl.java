@@ -14,8 +14,8 @@ public class EmployeeServiceImpl implements EmployeeInterface {
     public EmployeeDAOImpl employeeDAO;
 
     @Override
-    public Mono<EmployeeDTO> findByName(String name) {
-        return employeeDAO.findByName(name);
+    public Mono<EmployeeDTO> findById(String name) {
+        return employeeDAO.findById(name);
     }
 
     @Override

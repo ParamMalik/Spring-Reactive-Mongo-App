@@ -19,9 +19,9 @@ public class EmployeeDAOImpl implements EmployeeInterface {
     // Find Emp Details By Name
 
     @Override
-    public Mono<EmployeeDTO> findByName(String name) {
+    public Mono<EmployeeDTO> findById(String id) {
 
-        return employeeRepository.findByName(name);
+        return employeeRepository.findById(id).map(EmployeeMapper.INSTANCE::toEmployeeDTO);
     }
 
     // Add Employee to the database
@@ -48,7 +48,7 @@ public class EmployeeDAOImpl implements EmployeeInterface {
     @Override
     public Mono<EmployeeDTO> updateSalary(EmployeeDTO employee) {
 
-        return employeeRepository.findByName(employee.getName()).map(e -> {
+        return employeeRepository.findByName(employee.getName()).defaultIfEmpty(employee).map(e -> {
             e.setSalary(employee.getSalary());
             return e;
         }).map(EmployeeMapper.INSTANCE::toEmployeeModel).flatMap(employeeRepository::save).map(EmployeeMapper.INSTANCE::toEmployeeDTO);

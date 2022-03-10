@@ -5,7 +5,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface EmployeeService {
-    Mono<EmployeeDTO> findByName(String name);
+    Mono<EmployeeDTO> findById(String id);
 
     Mono<EmployeeDTO> save(EmployeeDTO employee);
 
